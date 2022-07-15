@@ -33,6 +33,7 @@ function gameLoop(){
     drawBarry();
     drawSnake();
 }
+requestAnimationFrame(gameLoop);
 function drawSnake(){ // сама змейка
     snake.x+=snake.dx;
     snake.y+= snake.dy;
@@ -60,7 +61,8 @@ function drawSnake(){ // сама змейка
     }
     )
 }
-function refresGame(){}
+function refreshGame(){}
+function drawBarry(){}
 function randomPositionBerry(){}
 function incScore(){ // обработки очков, увеличивает число на один
     score++;
@@ -72,3 +74,19 @@ function drawScore(){
 function getRandomInt(min, max){
     return Math.floor(Math.random() * (max-min)+ min)
 }
+document.addEventListener("keydown", function(e){
+    if (e.code == "KeyW"){
+        snake.dy = -mysteps.sizeCell
+        snake.dx = 0;
+    } else if(e.code == "KeyA"){
+        snake.dy = -mysteps.sizeCell 
+        snake.dx = 0;
+    } else if(e.code == "KeyS"){
+        snake.dy = mysteps.sizeCell
+        snake.dx = 0;
+    } else if(e.code == "KeyD"){
+        snake.dy = mysteps.sizeCell 
+        snake.dx = 0;
+    }
+}
+)
