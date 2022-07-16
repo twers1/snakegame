@@ -61,9 +61,36 @@ function drawSnake(){ // сама змейка
     }
     )
 }
-function refreshGame(){}
-function drawBarry(){}
-function randomPositionBerry(){}
+function colisionBorder(){
+    if (snake.x < 0 ){
+        snake.x = canvas.width - mysteps.sizeCell
+    } else if (snake.x >=canvas.width){
+        snake.x = 0
+    }
+    if (snake.y < 0){
+        snake.y = canvas.height - mysteps.sizeCell
+    } else if (snake.y >=canvas.height){
+        snake.y =0
+    }
+}
+function refreshGame(){ // обнулирование  всех значений
+score = 0;
+drawScore();
+snake.x = 160
+snake.y =160
+sm
+} 
+function drawBarry(){
+    context.beginPath();
+    context.fillStyle = "#A00034"
+    context.arc(berry.x+(mysteps.sizeCell/2), berry.y+(mysteps.sizeCell/2), mysteps.sizeBarry, 0, 2* Math.PI
+    )
+    context.fill();
+}
+function randomPositionBerry(){
+    berry.x = getRandomInt(0, canvas.width/mysteps.sizeCell) *mysteps.sizeCell
+    berry.y = getRandomInt(o, canvas.height/mysteps.sizeCell)*mysteps.sizeCell
+}
 function incScore(){ // обработки очков, увеличивает число на один
     score++;
     drawScore();
@@ -79,14 +106,14 @@ document.addEventListener("keydown", function(e){
         snake.dy = -mysteps.sizeCell
         snake.dx = 0;
     } else if(e.code == "KeyA"){
-        snake.dy = -mysteps.sizeCell 
-        snake.dx = 0;
+        snake.dx = -mysteps.sizeCell 
+        snake.dy = 0;
     } else if(e.code == "KeyS"){
         snake.dy = mysteps.sizeCell
         snake.dx = 0;
     } else if(e.code == "KeyD"){
-        snake.dy = mysteps.sizeCell 
-        snake.dx = 0;
+        snake.dx = mysteps.sizeCell 
+        snake.dy = 0;
     }
 }
 )
