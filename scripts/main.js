@@ -78,7 +78,10 @@ score = 0;
 drawScore();
 snake.x = 160
 snake.y =160
-sm
+snake.tails = [];
+snake.maxTails =3;
+snake.dx = mysteps.sizeCell
+snake.dy = 0;
 } 
 function drawBarry(){
     context.beginPath();
